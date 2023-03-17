@@ -4,3 +4,6 @@ class WasRun:
 
     def testMethod(self) -> None:
         self.wasRun = 1
+
+    def run(self) -> None:
+        self.testMethod()
