@@ -1,18 +1,7 @@
 from test_case import TestCase
 from was_run import WasRun
 from test_result import TestResult
-
-
-class TestCaseTestWithBrokenSetup(TestCase):
-    def __init__(self, name) -> None:
-        TestCase.__init__(self, name)
-
-    def setUp(self) -> None:
-        raise Exception
-
-    def testFailedSetUp(self) -> None:
-        result = self.run()
-        assert ("1 run, 1 failed" == result.summary())
+from broken_setup import TestCaseWithBrokenSetup
 
 
 class TestCaseTest(TestCase):
@@ -32,8 +21,13 @@ class TestCaseTest(TestCase):
         result.testFailed()
         assert ("1 run, 1 failed" == result.summary())
 
+    def testFailedSetUp(self) -> None:
+        test = TestCaseWithBrokenSetup("testMethod")
+        result = test.run()
+        assert ("1 run, 1 failed" == result.summary())
+
 
 TestCaseTest("testTemplateMethod").run()
 TestCaseTest("testFailedResultFormatting").run()
 TestCaseTest("testFailedResult").run()
-TestCaseTestWithBrokenSetup("testFailedSetUp").run()
+TestCaseTest("testFailedSetUp").run()
