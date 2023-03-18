@@ -12,9 +12,19 @@ class TestCase:
     def run(self) -> None:
         result = TestResult()
         result.testStarted()
-        self.setUp()
-        method = getattr(self, self.name)
-        method()
+
+        try:
+            self.setUp()
+        except:
+            result.testFailed()
+            return result
+
+        try:
+            method = getattr(self, self.name)
+            method()
+        except:
+            result.testFailed()
+
         self.tearDown()
         return result
 
