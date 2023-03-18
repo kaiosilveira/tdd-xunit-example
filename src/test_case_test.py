@@ -26,8 +26,16 @@ class TestCaseTest(TestCase):
         result = test.run()
         assert ("1 run, 1 failed" == result.summary())
 
+    def testSuite(self) -> None:
+        suite = TestSuite()
+        suite.add(WasRun("testMethod"))
+        suite.add(WasRun("testBrokenMethod"))
+        result = suite.run()
+        assert ("2 run, 1 failed" == result.summary())
+
 
 print(TestCaseTest("testTemplateMethod").run().summary())
 print(TestCaseTest("testFailedResultFormatting").run().summary())
 print(TestCaseTest("testFailedResult").run().summary())
 print(TestCaseTest("testFailedSetUp").run().summary())
+print(TestCaseTest("testSuite").run().summary())
