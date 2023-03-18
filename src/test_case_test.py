@@ -2,6 +2,7 @@ from test_case import TestCase
 from was_run import WasRun
 from test_result import TestResult
 from broken_setup import TestCaseWithBrokenSetup
+from test_suite import TestSuite
 
 
 class TestCaseTest(TestCase):
@@ -30,7 +31,8 @@ class TestCaseTest(TestCase):
         suite = TestSuite()
         suite.add(WasRun("testMethod"))
         suite.add(WasRun("testBrokenMethod"))
-        result = suite.run()
+        result = TestResult()
+        result = suite.run(result)
         assert ("2 run, 1 failed" == result.summary())
 
 

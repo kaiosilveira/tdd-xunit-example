@@ -8,8 +8,6 @@ class TestSuite:
     def add(self, test) -> None:
         self.tests.append(test)
 
-    def run(self) -> None:
-        result = TestResult()
+    def run(self, result) -> None:
         for test in self.tests:
             test.run(result)
-        return result
