@@ -12,3 +12,6 @@ class WasRun(TestCase):
     def testMethod(self) -> None:
         self.wasRun = 1
         self.log = self.log + "testMethod "
+
+    def tearDown(self) -> None:
+        self.log = self.log + "tearDown "
