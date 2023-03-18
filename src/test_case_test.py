@@ -36,8 +36,13 @@ class TestCaseTest(TestCase):
         assert ("2 run, 1 failed" == result.summary())
 
 
-print(TestCaseTest("testTemplateMethod").run().summary())
-print(TestCaseTest("testFailedResultFormatting").run().summary())
-print(TestCaseTest("testFailedResult").run().summary())
-print(TestCaseTest("testFailedSetUp").run().summary())
-print(TestCaseTest("testSuite").run().summary())
+suite = TestSuite()
+suite.add(TestCaseTest("testTemplateMethod"))
+suite.add(TestCaseTest("testFailedResultFormatting"))
+suite.add(TestCaseTest("testFailedResult"))
+suite.add(TestCaseTest("testFailedSetUp"))
+suite.add(TestCaseTest("testSuite"))
+
+result = TestResult()
+suite.run(result)
+print(result.summary())
