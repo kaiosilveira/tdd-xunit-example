@@ -11,3 +11,4 @@ class WasRun(TestCase):
 
     def testMethod(self) -> None:
         self.wasRun = 1
+        self.log = self.log + "testMethod "
