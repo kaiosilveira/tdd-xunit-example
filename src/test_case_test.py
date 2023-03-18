@@ -6,14 +6,9 @@ class TestCaseTest(TestCase):
     def setUp(self) -> None:
         self.test = WasRun("testMethod")
 
-    def testRunning(self) -> None:
-        self.test.run()
-        assert (self.test.wasRun)
-
     def testSetup(self) -> None:
         self.test.run()
         assert ("setUp testMethod " == self.test.log)
 
 
-TestCaseTest("testRunning").run()
 TestCaseTest("testSetup").run()
