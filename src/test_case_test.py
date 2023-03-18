@@ -27,7 +27,7 @@ class TestCaseTest(TestCase):
         assert ("1 run, 1 failed" == result.summary())
 
 
-TestCaseTest("testTemplateMethod").run()
-TestCaseTest("testFailedResultFormatting").run()
-TestCaseTest("testFailedResult").run()
-TestCaseTest("testFailedSetUp").run()
+print(TestCaseTest("testTemplateMethod").run().summary())
+print(TestCaseTest("testFailedResultFormatting").run().summary())
+print(TestCaseTest("testFailedResult").run().summary())
+print(TestCaseTest("testFailedSetUp").run().summary())
