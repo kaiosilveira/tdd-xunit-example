@@ -8,12 +8,14 @@ from test_suite import TestSuite
 class TestCaseTest(TestCase):
     def testTemplateMethod(self) -> None:
         test = WasRun("testMethod")
-        result = test.run()
+        result = TestResult()
+        test.run(result)
         assert ("1 run, 0 failed" == result.summary())
 
     def testFailedResult(self) -> None:
         test = WasRun("testBrokenMethod")
-        result = test.run()
+        result = TestResult()
+        test.run(result)
         assert ("1 run, 1 failed" == result.summary())
 
     def testFailedResultFormatting(self) -> None:
@@ -24,7 +26,8 @@ class TestCaseTest(TestCase):
 
     def testFailedSetUp(self) -> None:
         test = TestCaseWithBrokenSetup("testMethod")
-        result = test.run()
+        result = TestResult()
+        test.run(result)
         assert ("1 run, 1 failed" == result.summary())
 
     def testSuite(self) -> None:
@@ -32,7 +35,7 @@ class TestCaseTest(TestCase):
         suite.add(WasRun("testMethod"))
         suite.add(WasRun("testBrokenMethod"))
         result = TestResult()
-        result = suite.run(result)
+        suite.run(result)
         assert ("2 run, 1 failed" == result.summary())
 
 
