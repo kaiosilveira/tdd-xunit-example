@@ -33,10 +33,10 @@ class TestCaseTest(TestCase):
         assert ("1 run, 1 failed" == self.result.summary())
 
     def test_suite(self) -> None:
-        suite = TestSuite()
-        suite.add(WasRun("test_method"))
-        suite.add(WasRun("test_broken_method"))
-        suite.run(self.result)
+        test_suite = TestSuite()
+        test_suite.add(WasRun("test_method"))
+        test_suite.add(WasRun("test_broken_method"))
+        test_suite.run(self.result)
         assert ("2 run, 1 failed" == self.result.summary())
 
     def test_failed_tear_down(self) -> None:
@@ -54,12 +54,11 @@ class TestCaseTest(TestCase):
         assert (test.get_test_names() == ["test_method", "test_method_2"])
 
     def test_returns_test_suite(self) -> None:
-        suite = NoOpTestCase('test_method').as_suite()
-        assert (len(suite.tests) == 2)
+        test_suite = NoOpTestCase('test_method').as_suite()
+        assert (len(test_suite.tests) == 2)
 
-        result = TestResult()
-        suite.run(result)
-        assert (result.summary() == "2 run, 0 failed")
+        test_suite.run(self.result)
+        assert (self.result.summary() == "2 run, 0 failed")
 
 
 suite = TestCaseTest('anything').as_suite()
