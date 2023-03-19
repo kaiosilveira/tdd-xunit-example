@@ -3,6 +3,7 @@ from was_run import WasRun
 from test_result import TestResult
 from broken_setup import TestCaseWithBrokenSetup
 from test_suite import TestSuite
+from broken_teardown import TestCaseWithBrokenTearDown
 
 class TestCaseTest(TestCase):
     def setUp(self) -> None:
