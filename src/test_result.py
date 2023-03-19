@@ -3,10 +3,10 @@ class TestResult:
         self.runCount = 0
         self.errorCount = 0
 
-    def testStarted(self) -> None:
+    def test_started(self) -> None:
         self.runCount = self.runCount + 1
 
-    def testFailed(self) -> None:
+    def test_failed(self) -> None:
         self.errorCount = self.errorCount + 1
 
     def summary(self):

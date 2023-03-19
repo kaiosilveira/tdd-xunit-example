@@ -10,24 +10,24 @@ class TestCase:
         pass
 
     def run(self, result: TestResult) -> None:
-        result.testStarted()
+        result.test_started()
 
         try:
             self.set_up()
         except:
-            result.testFailed()
+            result.test_failed()
             return result
 
         try:
             method = getattr(self, self.name)
             method()
         except:
-            result.testFailed()
+            result.test_failed()
 
         try:
             self.tear_down()
         except:
-            result.testFailed()
+            result.test_failed()
 
     def tear_down(self) -> None:
         pass

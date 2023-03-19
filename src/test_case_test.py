@@ -23,8 +23,8 @@ class TestCaseTest(TestCase):
 
     def testFailedResultFormatting(self) -> None:
         result = TestResult()
-        result.testStarted()
-        result.testFailed()
+        result.test_started()
+        result.test_failed()
         assert ("1 run, 1 failed" == result.summary())
 
     def testFailedSetUp(self) -> None:
