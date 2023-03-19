@@ -1,6 +1,3 @@
-from test_result import TestResult
-
-
 class TestCase:
 
     def __init__(self, name) -> None:

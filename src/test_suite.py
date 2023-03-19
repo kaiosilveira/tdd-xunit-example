@@ -1,6 +1,3 @@
-from test_result import TestResult
-
-
 class TestSuite:
     def __init__(self) -> None:
         self.tests = []

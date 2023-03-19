@@ -5,6 +5,7 @@ from broken_setup import TestCaseWithBrokenSetup
 from test_suite import TestSuite
 from broken_teardown import TestCaseWithBrokenTearDown
 
+
 class TestCaseTest(TestCase):
     def setUp(self) -> None:
         self.result = TestResult()
