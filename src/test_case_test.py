@@ -3,7 +3,7 @@ from was_run import WasRun
 from test_result import TestResult
 from broken_setup import TestCaseWithBrokenSetup
 from test_suite import TestSuite
-
+from broken_teardown import TestCaseWithBrokenTearDown
 
 class TestCaseTest(TestCase):
     def setUp(self) -> None:
@@ -37,6 +37,11 @@ class TestCaseTest(TestCase):
         suite.run(self.result)
         assert ("2 run, 1 failed" == self.result.summary())
 
+    def testFailedTearDown(self) -> None:
+        test = TestCaseWithBrokenTearDown("testMethod")
+        test.run(self.result)
+        assert ("1 run, 1 failed" == self.result.summary())
+
 
 suite = TestSuite()
 suite.add(TestCaseTest("testTemplateMethod"))
@@ -44,6 +49,7 @@ suite.add(TestCaseTest("testFailedResultFormatting"))
 suite.add(TestCaseTest("testFailedResult"))
 suite.add(TestCaseTest("testFailedSetUp"))
 suite.add(TestCaseTest("testSuite"))
+suite.add(TestCaseTest("testFailedTearDown"))
 
 result = TestResult()
 suite.run(result)

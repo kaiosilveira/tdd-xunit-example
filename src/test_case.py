@@ -24,7 +24,10 @@ class TestCase:
         except:
             result.testFailed()
 
-        self.tearDown()
+        try:
+            self.tearDown()
+        except:
+            result.testFailed()
 
     def tearDown(self) -> None:
         pass
