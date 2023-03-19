@@ -2,18 +2,22 @@ from test_case import TestCase
 from was_run import WasRun
 from test_result import TestResult
 from broken_setup import TestCaseWithBrokenSetup
+from test_suite import TestSuite
 
 
 class TestCaseTest(TestCase):
+    def setUp(self) -> None:
+        self.result = TestResult()
+
     def testTemplateMethod(self) -> None:
         test = WasRun("testMethod")
-        result = test.run()
-        assert ("1 run, 0 failed" == result.summary())
+        test.run(self.result)
+        assert ("1 run, 0 failed" == self.result.summary())
 
     def testFailedResult(self) -> None:
         test = WasRun("testBrokenMethod")
-        result = test.run()
-        assert ("1 run, 1 failed" == result.summary())
+        test.run(self.result)
+        assert ("1 run, 1 failed" == self.result.summary())
 
     def testFailedResultFormatting(self) -> None:
         result = TestResult()
@@ -23,11 +27,24 @@ class TestCaseTest(TestCase):
 
     def testFailedSetUp(self) -> None:
         test = TestCaseWithBrokenSetup("testMethod")
-        result = test.run()
-        assert ("1 run, 1 failed" == result.summary())
+        test.run(self.result)
+        assert ("1 run, 1 failed" == self.result.summary())
+
+    def testSuite(self) -> None:
+        suite = TestSuite()
+        suite.add(WasRun("testMethod"))
+        suite.add(WasRun("testBrokenMethod"))
+        suite.run(self.result)
+        assert ("2 run, 1 failed" == self.result.summary())
 
 
-print(TestCaseTest("testTemplateMethod").run().summary())
-print(TestCaseTest("testFailedResultFormatting").run().summary())
-print(TestCaseTest("testFailedResult").run().summary())
-print(TestCaseTest("testFailedSetUp").run().summary())
+suite = TestSuite()
+suite.add(TestCaseTest("testTemplateMethod"))
+suite.add(TestCaseTest("testFailedResultFormatting"))
+suite.add(TestCaseTest("testFailedResult"))
+suite.add(TestCaseTest("testFailedSetUp"))
+suite.add(TestCaseTest("testSuite"))
+
+result = TestResult()
+suite.run(result)
+print(result.summary())
