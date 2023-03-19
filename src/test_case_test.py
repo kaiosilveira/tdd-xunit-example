@@ -62,17 +62,7 @@ class TestCaseTest(TestCase):
         assert (result.summary() == "2 run, 0 failed")
 
 
-suite = TestSuite()
-suite.add(TestCaseTest("testTemplateMethod"))
-suite.add(TestCaseTest("testFailedResultFormatting"))
-suite.add(TestCaseTest("testFailedResult"))
-suite.add(TestCaseTest("testFailedSetUp"))
-suite.add(TestCaseTest("testSuite"))
-suite.add(TestCaseTest("testFailedTearDown"))
-suite.add(TestCaseTest("testTearDownCalledEvenIfTestFails"))
-suite.add(TestCaseTest("testCollectAllTestNames"))
-suite.add(TestCaseTest("testReturnsTestSuite"))
-
+suite = TestCaseTest('anything').asSuite()
 result = TestResult()
 suite.run(result)
 print(result.summary())
