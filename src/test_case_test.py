@@ -28,7 +28,7 @@ class TestCaseTest(TestCase):
         assert ("1 run, 1 failed" == result.summary())
 
     def testFailedSetUp(self) -> None:
-        test = TestCaseWithBrokenSetup("testMethod")
+        test = TestCaseWithBrokenSetup("test_method")
         test.run(self.result)
         assert ("1 run, 1 failed" == self.result.summary())
 

@@ -8,5 +8,5 @@ class TestCaseWithBrokenSetup(TestCase):
     def set_up(self) -> None:
         raise Exception
 
-    def testMethod(self) -> None:
+    def test_method(self) -> None:
         pass
