@@ -28,3 +28,8 @@ class TestCase:
 
     def tearDown(self) -> None:
         pass
+
+    def getTestNames(self):
+        testNames = [testName for testName in dir(
+            self) if testName.startswith("test")]
+        return testNames
