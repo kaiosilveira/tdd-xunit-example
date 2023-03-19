@@ -4,7 +4,7 @@ from test_result import TestResult
 from broken_setup import TestCaseWithBrokenSetup
 from test_suite import TestSuite
 from broken_teardown import TestCaseWithBrokenTearDown
-
+from no_op_test_case import NoOpTestCase
 
 class TestCaseTest(TestCase):
     def setUp(self) -> None:
