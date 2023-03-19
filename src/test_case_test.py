@@ -40,7 +40,7 @@ class TestCaseTest(TestCase):
         assert ("2 run, 1 failed" == self.result.summary())
 
     def testFailedTearDown(self) -> None:
-        test = TestCaseWithBrokenTearDown("testMethod")
+        test = TestCaseWithBrokenTearDown("test_method")
         test.run(self.result)
         assert ("1 run, 1 failed" == self.result.summary())
 
