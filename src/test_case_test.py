@@ -11,49 +11,49 @@ class TestCaseTest(TestCase):
     def set_up(self) -> None:
         self.result = TestResult()
 
-    def testTemplateMethod(self) -> None:
+    def test_template_method(self) -> None:
         test = WasRun("test_method")
         test.run(self.result)
         assert ("1 run, 0 failed" == self.result.summary())
 
-    def testFailedResult(self) -> None:
+    def test_failed_result(self) -> None:
         test = WasRun("test_broken_method")
         test.run(self.result)
         assert ("1 run, 1 failed" == self.result.summary())
 
-    def testFailedResultFormatting(self) -> None:
+    def test_failed_result_formatting(self) -> None:
         result = TestResult()
         result.test_started()
         result.test_failed()
         assert ("1 run, 1 failed" == result.summary())
 
-    def testFailedSetUp(self) -> None:
+    def test_failed_set_up(self) -> None:
         test = TestCaseWithBrokenSetup("test_method")
         test.run(self.result)
         assert ("1 run, 1 failed" == self.result.summary())
 
-    def testSuite(self) -> None:
+    def test_suite(self) -> None:
         suite = TestSuite()
         suite.add(WasRun("test_method"))
         suite.add(WasRun("test_broken_method"))
         suite.run(self.result)
         assert ("2 run, 1 failed" == self.result.summary())
 
-    def testFailedTearDown(self) -> None:
+    def test_failed_tear_down(self) -> None:
         test = TestCaseWithBrokenTearDown("test_method")
         test.run(self.result)
         assert ("1 run, 1 failed" == self.result.summary())
 
-    def testTearDownCalledEvenIfTestFails(self) -> None:
+    def test_tear_down_called_even_if_test_fails(self) -> None:
         test = WasRun("test_broken_method")
         test.run(self.result)
         assert ("set_up test_broken_method tear_down " == test.log)
 
-    def testCollectAllTestNames(self) -> None:
+    def test_collect_all_test_names(self) -> None:
         test = NoOpTestCase('testMethod')
         assert (test.get_test_names() == ["testMethod", "testMethod2"])
 
-    def testReturnsTestSuite(self) -> None:
+    def test_returns_test_suite(self) -> None:
         suite = NoOpTestCase('testMethod').as_suite()
         assert (len(suite.tests) == 2)
 
