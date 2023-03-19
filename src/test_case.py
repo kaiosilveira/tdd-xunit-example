@@ -1,15 +1,15 @@
 from test_suite import TestSuite
-
+from test_result import TestResult
 
 class TestCase:
 
-    def __init__(self, name) -> None:
+    def __init__(self, name: str) -> None:
         self.name = name
 
     def set_up(self) -> None:
         pass
 
-    def run(self, result) -> None:
+    def run(self, result: TestResult) -> None:
         result.testStarted()
 
         try:
