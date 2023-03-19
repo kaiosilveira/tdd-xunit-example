@@ -9,5 +9,4 @@ class TestCaseWithBrokenSetup(TestCase):
         raise Exception
 
     def testMethod(self) -> None:
-        result = self.run()
-        assert ("1 run, 1 failed" == result.summary())
+        pass
