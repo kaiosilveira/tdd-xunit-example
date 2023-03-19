@@ -1,3 +1,6 @@
+from test_suite import TestSuite
+
+
 class TestCase:
 
     def __init__(self, name) -> None:
@@ -28,3 +31,15 @@ class TestCase:
 
     def tearDown(self) -> None:
         pass
+
+    def getTestNames(self):
+        testNames = [testName for testName in dir(
+            self) if testName.startswith("test")]
+        return testNames
+
+    def asSuite(self):
+        suite = TestSuite()
+        testNames = self.getTestNames()
+        for testName in testNames:
+            suite.add(self.__class__(testName))
+        return suite
