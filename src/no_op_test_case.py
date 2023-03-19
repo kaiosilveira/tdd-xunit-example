@@ -2,8 +2,8 @@ from test_case import TestCase
 
 
 class NoOpTestCase(TestCase):
-    def testMethod(self) -> None:
+    def test_method(self) -> None:
         pass
     
-    def testMethod2(self) -> None:
+    def test_method_2(self) -> None:
         pass

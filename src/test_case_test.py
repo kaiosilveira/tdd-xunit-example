@@ -50,11 +50,11 @@ class TestCaseTest(TestCase):
         assert ("set_up test_broken_method tear_down " == test.log)
 
     def test_collect_all_test_names(self) -> None:
-        test = NoOpTestCase('testMethod')
-        assert (test.get_test_names() == ["testMethod", "testMethod2"])
+        test = NoOpTestCase('test_method')
+        assert (test.get_test_names() == ["test_method", "test_method_2"])
 
     def test_returns_test_suite(self) -> None:
-        suite = NoOpTestCase('testMethod').as_suite()
+        suite = NoOpTestCase('test_method').as_suite()
         assert (len(suite.tests) == 2)
 
         result = TestResult()
