@@ -8,7 +8,7 @@ from no_op_test_case import NoOpTestCase
 
 
 class TestCaseTest(TestCase):
-    def setUp(self) -> None:
+    def set_up(self) -> None:
         self.result = TestResult()
 
     def testTemplateMethod(self) -> None:
@@ -51,10 +51,10 @@ class TestCaseTest(TestCase):
 
     def testCollectAllTestNames(self) -> None:
         test = NoOpTestCase('testMethod')
-        assert (test.getTestNames() == ["testMethod", "testMethod2"])
+        assert (test.get_test_names() == ["testMethod", "testMethod2"])
 
     def testReturnsTestSuite(self) -> None:
-        suite = NoOpTestCase('testMethod').asSuite()
+        suite = NoOpTestCase('testMethod').as_suite()
         assert (len(suite.tests) == 2)
 
         result = TestResult()
@@ -62,7 +62,7 @@ class TestCaseTest(TestCase):
         assert (result.summary() == "2 run, 0 failed")
 
 
-suite = TestCaseTest('anything').asSuite()
+suite = TestCaseTest('anything').as_suite()
 result = TestResult()
 suite.run(result)
 print(result.summary())

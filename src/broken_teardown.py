@@ -8,5 +8,5 @@ class TestCaseWithBrokenTearDown(TestCase):
     def testMethod(self) -> None:
         pass
 
-    def tearDown(self) -> None:
+    def tear_down(self) -> None:
         raise Exception

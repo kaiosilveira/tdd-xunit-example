@@ -5,7 +5,7 @@ class TestCaseWithBrokenSetup(TestCase):
     def __init__(self, name) -> None:
         TestCase.__init__(self, name)
 
-    def setUp(self) -> None:
+    def set_up(self) -> None:
         raise Exception
 
     def testMethod(self) -> None:

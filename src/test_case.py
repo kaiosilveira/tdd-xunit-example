@@ -6,14 +6,14 @@ class TestCase:
     def __init__(self, name) -> None:
         self.name = name
 
-    def setUp(self) -> None:
+    def set_up(self) -> None:
         pass
 
     def run(self, result) -> None:
         result.testStarted()
 
         try:
-            self.setUp()
+            self.set_up()
         except:
             result.testFailed()
             return result
@@ -25,21 +25,21 @@ class TestCase:
             result.testFailed()
 
         try:
-            self.tearDown()
+            self.tear_down()
         except:
             result.testFailed()
 
-    def tearDown(self) -> None:
+    def tear_down(self) -> None:
         pass
 
-    def getTestNames(self):
+    def get_test_names(self):
         testNames = [testName for testName in dir(
             self) if testName.startswith("test")]
         return testNames
 
-    def asSuite(self):
+    def as_suite(self):
         suite = TestSuite()
-        testNames = self.getTestNames()
+        testNames = self.get_test_names()
         for testName in testNames:
             suite.add(self.__class__(testName))
         return suite
