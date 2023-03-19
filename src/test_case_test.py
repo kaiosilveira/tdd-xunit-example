@@ -48,6 +48,10 @@ class TestCaseTest(TestCase):
         test.run(self.result)
         assert ("setUp testBrokenMethod tearDown " == test.log)
 
+    def testCollectAllTestNames(self) -> None:
+        test = NoOpTestCase('testMethod')
+        assert (test.getTestNames() == ["testMethod", "testMethod2"])
+
 
 suite = TestSuite()
 suite.add(TestCaseTest("testTemplateMethod"))
@@ -57,6 +61,7 @@ suite.add(TestCaseTest("testFailedSetUp"))
 suite.add(TestCaseTest("testSuite"))
 suite.add(TestCaseTest("testFailedTearDown"))
 suite.add(TestCaseTest("testTearDownCalledEvenIfTestFails"))
+suite.add(TestCaseTest("testCollectAllTestNames"))
 
 result = TestResult()
 suite.run(result)
