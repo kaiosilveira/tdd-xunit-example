@@ -1,3 +1,5 @@
+[![Continuous Integration](https://github.com/kaiosilveira/tdd-xunit-example/actions/workflows/ci.yml/badge.svg)](https://github.com/kaiosilveira/tdd-xunit-example/actions/workflows/ci.yml)
+
 ℹ️ _This repository is part of my TDD series, please refer to [kaiosilveira/test-driven-development](https://github.com/kaiosilveira/test-driven-development) for the full picture of this project_
 
 # TDD by example - part II: The xUnit example
