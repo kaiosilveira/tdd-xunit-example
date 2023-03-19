@@ -57,18 +57,14 @@ As mentioned, our goal is to implement a simple testing framework. The initial s
 
 The implementation path for these features and their related pull requests are listed in the table below.
 
-| Chapter                                       | Implementation                                                                                    |
-| --------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| #18: First steps to xUnit                     | [Bootstrap the testing framework](https://github.com/kaiosilveira/tdd-xunit-example/pull/1)       |
-| #19: Set the table                            | [Configure a setUp() method](https://github.com/kaiosilveira/tdd-xunit-example/pull/2)            |
-| #20: Cleaning up after                        | [Implement tearDown()](https://github.com/kaiosilveira/tdd-xunit-example/pull/8)                  |
-| #21: Counting                                 | [Report collected results](https://github.com/kaiosilveira/tdd-xunit-example/pull/9)              |
-| #22: Dealing with failure                     | [Report failed tests](https://github.com/kaiosilveira/tdd-xunit-example/pull/10)                  |
-| #23: How suite it is                          | [Implement TestSuite](https://github.com/kaiosilveira/tdd-xunit-example/pull/12)                  |
-| Bonus: Handle failures at `tearDown()`        | [Handle failures at tearDown()](https://github.com/kaiosilveira/tdd-xunit-example/pull/20)        |
-| Bonus: Invoke `tearDown()` even if test fails | [Invoke tearDown() even if test fails](https://github.com/kaiosilveira/tdd-xunit-example/pull/21) |
-| Bonus: Create `TestSuite` from `TestCase`     | [Create TestSuite from TestCase](https://github.com/kaiosilveira/tdd-xunit-example/pull/22)       |
-
-| Chapter                                   | Issue                                                                       | Implementation                                                                              |
-| ----------------------------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| Bonus: Create `TestSuite` from `TestCase` | [Linked issue](https://github.com/kaiosilveira/tdd-xunit-example/issues/18) | [Create TestSuite from TestCase](https://github.com/kaiosilveira/tdd-xunit-example/pull/22) |
+| Chapter                                                                                                      | Implementation                                                                                    |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
+| [#18](https://github.com/kaiosilveira/tdd-xunit-example/issues/3): First steps to xUnit                      | [Bootstrap the testing framework](https://github.com/kaiosilveira/tdd-xunit-example/pull/1)       |
+| [#19](https://github.com/kaiosilveira/tdd-xunit-example/issues/5): Set the table                             | [Configure a setUp() method](https://github.com/kaiosilveira/tdd-xunit-example/pull/2)            |
+| [#20](https://github.com/kaiosilveira/tdd-xunit-example/issues/6): Cleaning up after                         | [Implement tearDown()](https://github.com/kaiosilveira/tdd-xunit-example/pull/8)                  |
+| [#21](https://github.com/kaiosilveira/tdd-xunit-example/issues/7): Counting                                  | [Report collected results](https://github.com/kaiosilveira/tdd-xunit-example/pull/9)              |
+| [#22](https://github.com/kaiosilveira/tdd-xunit-example/issues/11): Dealing with failure                     | [Report failed tests](https://github.com/kaiosilveira/tdd-xunit-example/pull/10)                  |
+| [#23](https://github.com/kaiosilveira/tdd-xunit-example/issues/13): How suite it is                          | [Implement TestSuite](https://github.com/kaiosilveira/tdd-xunit-example/pull/12)                  |
+| [Bonus](https://github.com/kaiosilveira/tdd-xunit-example/issues/19): Handle failures at `tearDown()`        | [Handle failures at tearDown()](https://github.com/kaiosilveira/tdd-xunit-example/pull/20)        |
+| [Bonus](https://github.com/kaiosilveira/tdd-xunit-example/issues/18): Invoke `tearDown()` even if test fails | [Invoke tearDown() even if test fails](https://github.com/kaiosilveira/tdd-xunit-example/pull/21) |
+| [Bonus](https://github.com/kaiosilveira/tdd-xunit-example/issues/14): Create `TestSuite` from `TestCase`     | [Create TestSuite from TestCase](https://github.com/kaiosilveira/tdd-xunit-example/pull/22)       |
