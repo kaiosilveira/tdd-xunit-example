@@ -55,7 +55,7 @@ As mentioned, our goal is to implement a simple testing framework. The initial s
 - Report collected results
 ```
 
-The implementation path for these features and their related pull requests are listed in the table below.
+The implementation path for these features and their related pull requests and cards are listed in the table below. Hover over the links in the "Chapter" column for a quick summary of the related issue created in the project for the chapter. Hovering over the links in the "Implementation" column will show a preview of the related PR.
 
 | Chapter                                                                                                      | Implementation                                                                                    |
 | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
