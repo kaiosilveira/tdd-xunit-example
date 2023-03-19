@@ -12,12 +12,12 @@ class TestCaseTest(TestCase):
         self.result = TestResult()
 
     def testTemplateMethod(self) -> None:
-        test = WasRun("testMethod")
+        test = WasRun("test_method")
         test.run(self.result)
         assert ("1 run, 0 failed" == self.result.summary())
 
     def testFailedResult(self) -> None:
-        test = WasRun("testBrokenMethod")
+        test = WasRun("test_broken_method")
         test.run(self.result)
         assert ("1 run, 1 failed" == self.result.summary())
 
@@ -34,8 +34,8 @@ class TestCaseTest(TestCase):
 
     def testSuite(self) -> None:
         suite = TestSuite()
-        suite.add(WasRun("testMethod"))
-        suite.add(WasRun("testBrokenMethod"))
+        suite.add(WasRun("test_method"))
+        suite.add(WasRun("test_broken_method"))
         suite.run(self.result)
         assert ("2 run, 1 failed" == self.result.summary())
 
@@ -45,9 +45,9 @@ class TestCaseTest(TestCase):
         assert ("1 run, 1 failed" == self.result.summary())
 
     def testTearDownCalledEvenIfTestFails(self) -> None:
-        test = WasRun("testBrokenMethod")
+        test = WasRun("test_broken_method")
         test.run(self.result)
-        assert ("setUp testBrokenMethod tearDown " == test.log)
+        assert ("set_up test_broken_method tear_down " == test.log)
 
     def testCollectAllTestNames(self) -> None:
         test = NoOpTestCase('testMethod')

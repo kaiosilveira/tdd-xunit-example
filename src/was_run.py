@@ -7,15 +7,15 @@ class WasRun(TestCase):
 
     def set_up(self) -> None:
         self.wasRun = None
-        self.log = "setUp "
+        self.log = "set_up "
 
-    def testMethod(self) -> None:
+    def test_method(self) -> None:
         self.wasRun = 1
-        self.log = self.log + "testMethod "
+        self.log = self.log + "test_method "
 
     def tear_down(self) -> None:
-        self.log = self.log + "tearDown "
+        self.log = self.log + "tear_down "
 
-    def testBrokenMethod(self) -> None:
-        self.log = self.log + "testBrokenMethod "
+    def test_broken_method(self) -> None:
+        self.log = self.log + "test_broken_method "
         raise Exception
