@@ -6,6 +6,7 @@ from test_suite import TestSuite
 from broken_teardown import TestCaseWithBrokenTearDown
 from no_op_test_case import NoOpTestCase
 
+
 class TestCaseTest(TestCase):
     def setUp(self) -> None:
         self.result = TestResult()
@@ -52,6 +53,14 @@ class TestCaseTest(TestCase):
         test = NoOpTestCase('testMethod')
         assert (test.getTestNames() == ["testMethod", "testMethod2"])
 
+    def testReturnsTestSuite(self) -> None:
+        suite = NoOpTestCase('testMethod').asSuite()
+        assert (len(suite.tests) == 2)
+
+        result = TestResult()
+        suite.run(result)
+        assert (result.summary() == "2 run, 0 failed")
+
 
 suite = TestSuite()
 suite.add(TestCaseTest("testTemplateMethod"))
@@ -62,6 +71,7 @@ suite.add(TestCaseTest("testSuite"))
 suite.add(TestCaseTest("testFailedTearDown"))
 suite.add(TestCaseTest("testTearDownCalledEvenIfTestFails"))
 suite.add(TestCaseTest("testCollectAllTestNames"))
+suite.add(TestCaseTest("testReturnsTestSuite"))
 
 result = TestResult()
 suite.run(result)
